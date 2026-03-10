@@ -6,6 +6,17 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
+   @OneToOne
+   @JoinColumn(name = "car_id")
+   private Car car;
+
+   public void setCar(Car car) {
+      this.car = car;
+   }
+   public Car getCar() {
+      return car;
+   }
+
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
